@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div class="content-container">
-      <h1>Schedule</h1>
-      <div v-for="item in allGameData" v-bind:key="item.name" style="margin-bottom:64px;">
-        <event-item v-bind:item="item"></event-item>
-      </div>
+  <div class="content-container">
+    <h1>Schedule</h1>
+    <div v-for="item in allGameData" v-bind:key="item.name" style="margin-bottom:64px;">
+      <event-item v-bind:item="item"></event-item>
     </div>
   </div>
 </template>

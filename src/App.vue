@@ -30,9 +30,9 @@ export default {
 
 html {
   background: url('./assets/venue/background.png');
-  background-position: center;
+  background-position: top;
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

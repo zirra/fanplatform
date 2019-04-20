@@ -20,11 +20,11 @@ export default {
   data () {
     return {
       allPlayers: [
-        {image: 'trump.png', name: 'Trumpo1'},
-        {image: 'trump.png', name: 'Trumpo2'},
-        {image: 'trump.png', name: 'Trumpo3'},
-        {image: 'trump.png', name: 'Trumpo4'},
-        {image: 'trump.png', name: 'Trumpo5'}
+        {image: 'card1.png', name: 'card1'},
+        {image: 'card2.png', name: 'card2'},
+        {image: 'card3.png', name: 'card3'},
+        {image: 'card4.png', name: 'card4'},
+        {image: 'card5.png', name: 'card5'}
       ]
     }
   }

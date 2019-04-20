@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import Roster from '@/components/screens/Roster'
 import Schedule from '@/components/screens/Schedule'
-import Shop from '@/components/screens/Shop'
 
 Vue.use(Router)
 
@@ -26,8 +25,7 @@ export default new Router({
     },
     {
       path: '/shop',
-      name: 'Shop',
-      component: Shop
+      beforeEnter (to, from, next) { window.open('https://sugar-land-skeeters10.mybigcommerce.com/', '_blank') }
     }
   ]
 })

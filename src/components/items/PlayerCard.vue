@@ -1,20 +1,41 @@
 <template>
-  <div class="content-container">
+  <div class="content-container" v-on:click="toggleCard">
     <div class="player-card">
-      <img v-bind:src="myimage" />
+      <div v-if="!isFlipped">
+        <img v-bind:src="myimage"/>
+        {{isFlipped}}
+      </div>
+      <div v-else>
+        Stats here
+      </div>
     </div>
+    
   </div>
 </template>
 
 <script>
 export default {
   name: 'player-card',
+  data () {
+    return {
+      isFlipped: false
+    }
+  },
   props: [
     'item'
   ],
   computed: {
     myimage: function () {
       return require(`../../assets/venue/players/${this.item.image}`)
+    }
+  },
+  methods: {
+    toggleCard () {
+      if (this.isFlipped) {
+        this.isFlipped = false
+      } else {
+        this.isFlipped = true
+      }
     }
   }
 }
