@@ -10,7 +10,6 @@ import store from './store'
 
 Vue.use(Vuex)
 Vue.use(VueQriously)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

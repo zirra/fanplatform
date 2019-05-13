@@ -1,10 +1,10 @@
 import axios from 'axios'
-import {storage} from './storage.js'
+import {storage} from './dao.js'
 
 export const api = {
 
   testAPI (path) { return (this._genUrl(path)) },
-  getRaw (path) { return axios.get(this._genUrl(path)) },
+  getRaw (path) { console.log(this._genUrl); return axios.get(this._genUrl(path)) },
   getRawSpec (path) { return axios.get(path) },
   get (path) { return axios.get(this._genUrl(path), this._genOpts()) },
   rawPost (path, body) { return axios.post(this._genUrl(path), body) },

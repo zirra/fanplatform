@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PlayerCard from '@/components/items/PlayerCard'
 
 export default {
@@ -17,16 +18,13 @@ export default {
   components: {
     'player-card': PlayerCard
   },
-  data () {
-    return {
-      allPlayers: [
-        {image: 'card1.png', name: 'card1'},
-        {image: 'card2.png', name: 'card2'},
-        {image: 'card3.png', name: 'card3'},
-        {image: 'card4.png', name: 'card4'},
-        {image: 'card5.png', name: 'card5'}
-      ]
-    }
+  mounted () {
+    console.log(this.allPlayers)
+  },
+  computed: {
+    ...mapGetters([
+      'allPlayers'
+    ])
   }
 }
 </script>

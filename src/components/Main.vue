@@ -3,11 +3,14 @@
     <div v-for="item in options" v-bind:key="item._id">
       <menu-tile v-bind:item="item"></menu-tile>
     </div>
+    <menu-tile v-bind:item="snapopt" v-if="!loggedIn"></menu-tile>
+    <menu-tile v-bind:item="snappedin" v-else></menu-tile>
   </div>
 </template>
 
 <script>
 import Tile from './navigation/Tile'
+import { storage } from '../utils/dao'
 
 export default {
   name: 'hello',
@@ -21,8 +24,14 @@ export default {
         {image: 'skeeter_shop.png', title: 'Schedule', target: '/schedule'},
         {image: 'skeeter_shop.png', title: 'Roster', target: '/roster'},
         {image: 'skeeter_shop.png', title: 'Shop', target: '/shop'}
-      ]
+      ],
+      snapopt: {image: 'skeeter_shop.png', title: 'Snap', target: '/snap'},
+      snappedin: {image: 'skeeter_shop.png', title: 'Share with Snapchat', target: '/snapchat'},
+      loggedIn: false
     }
+  },
+  mounted () {
+    this.loggedIn = storage.valueExists('userkeys')
   }
 }
 </script>

@@ -9,7 +9,7 @@
     </main>
     <footer>
       <div class="footer-container">
-        digitalseat.com2019
+        digitalseat.com2019a
       </div>
     </footer>
   </div>
@@ -117,4 +117,6 @@ footer {
   margin: 0px auto;
   padding: 0px auto;
 }
+
 </style>
+
