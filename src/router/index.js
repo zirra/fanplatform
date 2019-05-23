@@ -5,16 +5,12 @@ import Roster from '@/components/screens/Roster'
 import Schedule from '@/components/screens/Schedule'
 import SnapBack from '@/components/screens/SnapBack'
 import SnapChat from '@/components/screens/SnapChat'
+import Settings from '@/components/screens/Settings'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'Main',
-      component: Main
-    },
     {
       path: '/roster',
       name: 'Roster',
@@ -42,6 +38,20 @@ export default new Router({
       path: '/snapchat',
       name: 'SnapChat',
       component: SnapChat
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: Settings
+    },
+    {
+      path: '/',
+      name: 'Main',
+      component: Main
+    },
+    {
+      path: '/:id',
+      component: Main
     }
   ]
 })

@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div v-if="showPromo">
+      <super-promo :item="promo"></super-promo>
+    </div>
     <header v-on:click="home">
       <img src="./assets/logo.png" alt="Vue.js PWA">
       <span class="apphead">CONSTELLATION<br/>FIELD</span>
@@ -9,38 +12,108 @@
     </main>
     <footer>
       <div class="footer-container">
-        digitalseat.com2019a
+        digitalseat.com 2019
       </div>
     </footer>
   </div>
 </template>
 
 <script>
+// import { storage } from '@/utils/storage'
+import SuperPromoVue from './components/screens/SuperPromo.vue'
+import {mapActions, mapGetters, mapMutations} from 'vuex'
+
+// {"test":"https://www.digitalseat.com", "img":"https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/skeeters_logo.png"}
 export default {
   name: 'app',
+  components: {
+    'super-promo': SuperPromoVue
+  },
+  data () {
+    return {
+      promo: null
+    }
+  },
+  mounted () {
+    console.log('mounted ' + this.user)
+  },
   methods: {
     home () {
       this.$router.push('/')
+    },
+    ...mapMutations([
+      'setNotification'
+    ]),
+    ...mapActions([
+      'setUser'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'showPromo',
+      'user'
+    ])
+  },
+  sockets: {
+    connect () {
+      this.isConnected = true
+      console.log('server connected')
+    },
+
+    disconnect () {
+      this.isConnected = false
+      console.log('server disconnected')
+    },
+
+    chat (data) {
+      this.socketMessage = data
+    },
+
+    updateApp (data) {
+      console.log(data)
+      try {
+        if (data !== null) {
+          this.setNotification(true)
+          this.promo = JSON.parse(data)
+        } else {
+          this.setNotification(false)
+          this.promo = null
+        }
+      } catch (e) {
+        this.setNotification(false)
+        this.promo = null
+      }
+    },
+
+    userSigned (data) {
+      this.setUser(data)
+      console.log(data)
+    },
+
+    userJoined (data) {
+      console.log(data + '<---------')
+    },
+
+    testCall (data) {
+      alert(data)
     }
+
   }
 }
 </script>
 
 <style>
 
-html {
-  background: url('./assets/venue/background.png');
-  background-position: top;
-  background-attachment: fixed;
-  background-repeat: repeat-y;
+body {
+  margin: 0;
+  background: url('./assets/venue/background.png') fixed top;
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-attachment: fixed;       
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-}
-
-body {
-  margin: 0;
+  background-size: cover;  
 }
 
 #app {

@@ -1819,12 +1819,19 @@ const allgames = [
 
 const state = {
   appState: 'somewhere',
-  gameData: allgames
+  gameData: allgames,
+  showPromo: false,
+  notification: false,
+  notifications: []
 }
 
 const mutations = {
   setAppState (state, loc) {
     state.appState = loc
+  },
+  setNotification (state, bool) {
+    state.showPromo = bool
+    state.notifications = bool
   }
 }
 
@@ -1834,11 +1841,15 @@ const getters = {
   },
   allGameData (state) {
     return state.gameData
+  },
+  showPromo (state) {
+    return state.showPromo
   }
 }
 
 const actions = {
-
+  openNotify (context, id) {
+  }
 }
 
 export default {

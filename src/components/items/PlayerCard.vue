@@ -7,7 +7,6 @@
           <img src="../../assets/venue/players/overlay.png" />
         </div>
         <img v-bind:src="myimage"/>
-        {{isFlipped}}
       </div>
       <div v-else class="player-stats" v-on:click="toggleCard">
         Stats here

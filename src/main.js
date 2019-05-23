@@ -2,12 +2,17 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import Vuex from 'vuex'
+import App from '@/App'
+import router from '@/router'
+import store from '@/store'
+
 import VueQriously from 'vue-qriously'
 
-import App from './App'
-import router from './router'
-import store from './store'
-
+import VueSocketio from 'vue-socket.io-extended'
+import io from 'socket.io-client'
+// Vue.use(VueSocketio, io('https://socket.digitalseat.io'))
+// Vue.use(VueSocketio, io('http://localhost:4444'))
+Vue.use(VueSocketio, io(process.env.SOCKET_SERVER))
 Vue.use(Vuex)
 Vue.use(VueQriously)
 Vue.config.productionTip = false

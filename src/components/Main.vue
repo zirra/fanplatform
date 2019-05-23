@@ -5,13 +5,14 @@
     </div>
     <menu-tile v-bind:item="snapopt" v-if="!loggedIn"></menu-tile>
     <menu-tile v-bind:item="snappedin" v-else></menu-tile>
+    <menu-tile v-bind:item="settings"></menu-tile>
   </div>
 </template>
 
 <script>
 import Tile from './navigation/Tile'
 import { storage } from '../utils/dao'
-
+import { mapGetters } from 'vuex'
 export default {
   name: 'hello',
   components: {
@@ -19,6 +20,7 @@ export default {
   },
   data () {
     return {
+      seat: null,
       msg: 'Welcome to Your Vue.js PWA',
       options: [
         {image: 'skeeter_shop.png', title: 'Schedule', target: '/schedule'},
@@ -26,12 +28,32 @@ export default {
         {image: 'skeeter_shop.png', title: 'Shop', target: '/shop'}
       ],
       snapopt: {image: 'skeeter_shop.png', title: 'Snap', target: '/snap'},
+      settings: {image: 'skeeter_shop.png', title: 'Settings', target: '/settings'},
       snappedin: {image: 'skeeter_shop.png', title: 'Share with Snapchat', target: '/snapchat'},
       loggedIn: false
     }
   },
   mounted () {
+    if (this.$route.params.id === undefined && !(this.user)) {
+      alert('Without scanning in, you will not be included in drawings')
+    } else {
+      this.seat = this.$route.params.id
+      if (!this.user) {
+        this.$socket.emit('addUser', this.seat)
+      }
+    }
     this.loggedIn = storage.valueExists('userkeys')
+  },
+  sockets: {
+    addUser (data) {
+      console.log(data)
+      this.socketMessage = data
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'user'
+    ])
   }
 }
 </script>
