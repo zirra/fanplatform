@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>User: {{user.username}}</p>
-    <button v-on:click="killUser">Clear User</button>
+    <button v-on:click="killUserLocal">Clear User</button>
   </div>
 </template>
 
@@ -16,6 +16,10 @@ export default {
     ])
   },
   methods: {
+    killUserLocal () {
+      this.$socket.emit('removeUser', this.user)
+      this.killUser(this.user)
+    },
     ...mapActions([
       'killUser'
     ])

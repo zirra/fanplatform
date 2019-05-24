@@ -1,18 +1,23 @@
 <template>
   <div id="app">
+    <div id="back"></div>
     <div v-if="showPromo">
       <super-promo :item="promo"></super-promo>
     </div>
-    <header v-on:click="home">
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <span class="apphead">CONSTELLATION<br/>FIELD</span>
-    </header>
+    <div v-if="prizeThere">
+      <prize-vue :item="prize"></prize-vue>
+    </div>
+    <img src="./assets/skeeters_header.png" style="width:100%;">
     <main>
       <router-view></router-view>
     </main>
     <footer>
-      <div class="footer-container">
-        digitalseat.com 2019
+      <div class="footer-contents">
+        <router-link to="/offer"><img src="./assets/offer_icon@2x.png"></router-link>
+        <router-link to="/schedule"><img src="./assets/schedule_icon@2x.png"></router-link>
+        <router-link :to="{path:user.username, params: {id: user.username }}"><img src="./assets/home_icon@2x.png"></router-link>
+        <router-link to="/roster"><img src="./assets/roster_icon@2x.png"></router-link>
+        <router-link to="/shop"><img src="./assets/shop_icon@2x.png"></router-link>
       </div>
     </footer>
   </div>
@@ -21,42 +26,59 @@
 <script>
 // import { storage } from '@/utils/storage'
 import SuperPromoVue from './components/screens/SuperPromo.vue'
-import {mapActions, mapGetters, mapMutations} from 'vuex'
+import PrizeVue from '@/components/screens/Prize'
+import {mapGetters, mapMutations} from 'vuex'
+import { storage } from './utils/dao'
 
 // {"test":"https://www.digitalseat.com", "img":"https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/skeeters_logo.png"}
 export default {
   name: 'app',
   components: {
-    'super-promo': SuperPromoVue
+    'super-promo': SuperPromoVue,
+    'prize-vue': PrizeVue
   },
   data () {
     return {
-      promo: null
+      prize: false,
+      promo: null,
+      user: null
     }
   },
   mounted () {
-    console.log('mounted ' + this.user)
+    this.user = storage.getValue('user')
+    console.log('mounted ->' + this.user.username)
   },
   methods: {
     home () {
-      this.$router.push('/')
+      this.user = storage.getValue('user')
+      if (this.user) {
+        this.$router.push(`/${this.user.username}`)
+      } else {
+        this.$router.push(`/`)
+      }
+    },
+    setPrize (data) {
+      console.log(`${data} <---set prize`)
+      this.prize = data
     },
     ...mapMutations([
       'setNotification'
-    ]),
-    ...mapActions([
-      'setUser'
     ])
   },
   computed: {
+    prizeThere () {
+      return this.prize
+    },
     ...mapGetters([
-      'showPromo',
-      'user'
+      'showPromo'
     ])
   },
   sockets: {
     connect () {
       this.isConnected = true
+      if (this.user) {
+        this.$socket.emit('addUser', this.user.username)
+      }
       console.log('server connected')
     },
 
@@ -86,7 +108,7 @@ export default {
     },
 
     userSigned (data) {
-      this.setUser(data)
+      storage.storeValue('user', data)
       console.log(data)
     },
 
@@ -95,7 +117,13 @@ export default {
     },
 
     testCall (data) {
-      alert(data)
+      if (data != null) {
+        this.setPrize(true)
+        this.prize = data
+      } else {
+        this.setPrize(false)
+        this.prize = null
+      }
     }
 
   }
@@ -106,7 +134,14 @@ export default {
 
 body {
   margin: 0;
-  background: url('./assets/venue/background.png') fixed top;
+}
+
+#back {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('./assets/halftone_background@2x.png') fixed bottom;
   background-repeat: no-repeat; 
   background-position: center;
   background-attachment: fixed;       
@@ -135,7 +170,7 @@ h1, h2, h3, h4 {
 
 main {
   text-align: center;
-  padding-top: 124px;
+  padding-top: 80px;
   padding-bottom: 128px;
 }
 
@@ -175,21 +210,26 @@ header span {
 }
 
 footer {
+  text-align:center;
   bottom: 0;
   width: 100%;
   position: fixed;
-  height: 50px;
-  background-color:#1b3f9a;
+  height: 60px;
+  background-color:#1C3F9B;
   color: #ffffff;
   z-index: 10001;
-  border-top: solid 1px #fff;
 }
 
-.footer-container {
-  text-align: center;
+.footer-contents {
   margin: 0px auto;
   padding: 0px auto;
+  height: 50px;
+  width: 100%;
+  text-align: center;
 }
-
+.footer-contents img {
+  float: none;
+  margin: 10px 10px 0px 10px;
+}
 </style>
 

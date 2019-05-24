@@ -28,6 +28,7 @@ const getters = {
 
 const actions = {
   setUser (context, data) {
+    console.log(data)
     storage.storeValue('user', data)
     context.commit('setUser', {state, data})
   },

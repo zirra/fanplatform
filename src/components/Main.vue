@@ -12,7 +12,7 @@
 <script>
 import Tile from './navigation/Tile'
 import { storage } from '../utils/dao'
-import { mapGetters } from 'vuex'
+
 export default {
   name: 'hello',
   components: {
@@ -30,15 +30,20 @@ export default {
       snapopt: {image: 'skeeter_shop.png', title: 'Snap', target: '/snap'},
       settings: {image: 'skeeter_shop.png', title: 'Settings', target: '/settings'},
       snappedin: {image: 'skeeter_shop.png', title: 'Share with Snapchat', target: '/snapchat'},
-      loggedIn: false
+      loggedIn: false,
+      user: {}
     }
   },
   mounted () {
+    this.user = storage.getValue('user')
     if (this.$route.params.id === undefined && !(this.user)) {
-      alert('Without scanning in, you will not be included in drawings')
+      console.log('Without scanning in, you will not be included in drawings')
     } else {
       this.seat = this.$route.params.id
-      if (!this.user) {
+      if (!this.user && this.seat) {
+        this.$socket.emit('addUser', this.seat)
+      }
+      if (this.user.username !== this.seat) {
         this.$socket.emit('addUser', this.seat)
       }
     }
@@ -51,9 +56,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'user'
-    ])
   }
 }
 </script>

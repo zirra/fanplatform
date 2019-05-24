@@ -6,6 +6,7 @@ import Schedule from '@/components/screens/Schedule'
 import SnapBack from '@/components/screens/SnapBack'
 import SnapChat from '@/components/screens/SnapChat'
 import Settings from '@/components/screens/Settings'
+import Offer from '@/components/screens/Offer'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/schedule',
       name: 'Schedule',
       component: Schedule
+    },
+    {
+      path: '/offer',
+      name: 'Offer',
+      component: Offer
     },
     {
       path: '/shop',
@@ -51,6 +57,8 @@ export default new Router({
     },
     {
       path: '/:id',
+      name: 'AltMain',
+      props: true,
       component: Main
     }
   ]

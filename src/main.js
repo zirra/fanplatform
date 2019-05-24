@@ -10,8 +10,7 @@ import VueQriously from 'vue-qriously'
 
 import VueSocketio from 'vue-socket.io-extended'
 import io from 'socket.io-client'
-// Vue.use(VueSocketio, io('https://socket.digitalseat.io'))
-// Vue.use(VueSocketio, io('http://localhost:4444'))
+
 Vue.use(VueSocketio, io(process.env.SOCKET_SERVER))
 Vue.use(Vuex)
 Vue.use(VueQriously)
