@@ -1,11 +1,16 @@
 <template>
   <div class="menu">
-    <div v-for="item in options" v-bind:key="item._id">
+    <!-- div v-for="item in options" v-bind:key="item._id" -->
+    <div style="width: 98%; margin-left: 2%;" v-for="item in options" v-bind:key="item._id">
+      <div style="width:50%; float:left;">
       <menu-tile v-bind:item="item"></menu-tile>
+      </div>
     </div>
+    <!--
     <menu-tile v-bind:item="snapopt" v-if="!loggedIn"></menu-tile>
     <menu-tile v-bind:item="snappedin" v-else></menu-tile>
     <menu-tile v-bind:item="settings"></menu-tile>
+    -->
   </div>
 </template>
 
@@ -23,9 +28,10 @@ export default {
       seat: null,
       msg: 'Welcome to Your Vue.js PWA',
       options: [
-        {image: 'skeeter_shop.png', title: 'Schedule', target: '/schedule'},
-        {image: 'skeeter_shop.png', title: 'Roster', target: '/roster'},
-        {image: 'skeeter_shop.png', title: 'Shop', target: '/shop'}
+        {image: 'offers_btn@2x.png', title: 'Offers', target: '/offer'},
+        {image: 'schedule_btn@2x.png', title: 'Schedule', target: '/schedule'},
+        {image: 'team_btn@2x.png', title: 'Roster', target: '/roster'},
+        {image: 'shop_btn@2x.png', title: 'Shop', target: '/shop'}
       ],
       snapopt: {image: 'skeeter_shop.png', title: 'Snap', target: '/snap'},
       settings: {image: 'skeeter_shop.png', title: 'Settings', target: '/settings'},

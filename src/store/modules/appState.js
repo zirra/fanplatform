@@ -1821,6 +1821,7 @@ const state = {
   appState: 'somewhere',
   gameData: allgames,
   showPromo: false,
+  showPrize: false,
   notification: false,
   notifications: []
 }
@@ -1831,7 +1832,11 @@ const mutations = {
   },
   setNotification (state, bool) {
     state.showPromo = bool
-    state.notifications = bool
+    state.notification = bool
+  },
+  setPrizeState (state, bool) {
+    state.showPrize = bool
+    state.notification = bool
   }
 }
 
@@ -1844,6 +1849,12 @@ const getters = {
   },
   showPromo (state) {
     return state.showPromo
+  },
+  showPrize (state) {
+    return state.showPrize
+  },
+  notification (state) {
+    return state.notification
   }
 }
 

@@ -4,12 +4,12 @@
     <div v-if="showPromo">
       <super-promo :item="promo"></super-promo>
     </div>
-    <div v-if="prizeThere">
+    <div v-if="showPrize">
       <prize-vue :item="prize"></prize-vue>
     </div>
-    <img src="./assets/skeeters_header.png" style="width:100%;">
-    <main>
-      <router-view></router-view>
+    <main v-if="!notification">
+      <img src="./assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
+      <router-view style="padding-bottom:128px;"></router-view>
     </main>
     <footer>
       <div class="footer-contents">
@@ -39,30 +39,37 @@ export default {
   },
   data () {
     return {
-      prize: false,
+      prize: null,
       promo: null,
-      user: null
+      user: {username: 'test'}
     }
   },
   mounted () {
     this.user = storage.getValue('user')
+    if (this.user) {
+      this.$socket.emit('addUser', this.user.username)
+    }
     console.log('mounted ->' + this.user.username)
   },
   methods: {
     home () {
       this.user = storage.getValue('user')
+      console.log(this.user)
       if (this.user) {
+        this.$socket.emit('addUser', this.user.username)
         this.$router.push(`/${this.user.username}`)
       } else {
         this.$router.push(`/`)
       }
     },
     setPrize (data) {
-      console.log(`${data} <---set prize`)
+      this.setPrizeState(true)
+      console.log(data)
       this.prize = data
     },
     ...mapMutations([
-      'setNotification'
+      'setNotification',
+      'setPrizeState'
     ])
   },
   computed: {
@@ -70,15 +77,14 @@ export default {
       return this.prize
     },
     ...mapGetters([
-      'showPromo'
+      'showPromo',
+      'showPrize',
+      'notification'
     ])
   },
   sockets: {
     connect () {
       this.isConnected = true
-      if (this.user) {
-        this.$socket.emit('addUser', this.user.username)
-      }
       console.log('server connected')
     },
 
@@ -118,8 +124,8 @@ export default {
 
     testCall (data) {
       if (data != null) {
-        this.setPrize(true)
-        this.prize = data
+        this.setPrize(JSON.parse(data))
+        console.log(this.prize)
       } else {
         this.setPrize(false)
         this.prize = null
@@ -134,21 +140,20 @@ export default {
 
 body {
   margin: 0;
-}
-
-#back {
-  position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background: url('./assets/halftone_background@2x.png') fixed bottom;
   background-repeat: no-repeat; 
-  background-position: center;
+  background-position: bottom;
   background-attachment: fixed;       
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;  
+}
+
+#back {
+  
 }
 
 #app {
@@ -165,13 +170,12 @@ body {
 
 h1, h2, h3, h4 {
   margin-top: 0px;
-  color: #fff200;
+  color: #1C3F9B;
 }
 
 main {
   text-align: center;
-  padding-top: 80px;
-  padding-bottom: 128px;
+  padding-top: 0px;
 }
 
 header {
@@ -180,7 +184,7 @@ header {
   width: 100%;
   margin: 0;
   height: 76px;
-  background-color:#1b3f9a;
+  background-color:#1C3F9B;
   color: #ffffff;
   border-bottom: solid 1px #fff;
 }
@@ -229,7 +233,7 @@ footer {
 }
 .footer-contents img {
   float: none;
-  margin: 10px 10px 0px 10px;
+  margin: 10px 15px 0px 15px;
 }
 </style>
 

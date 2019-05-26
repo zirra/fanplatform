@@ -1,37 +1,63 @@
 <template>
   <div class="prize">
     <div class="prize-holder">
-      prize
+      <img :src="item.img" class="prize-hero"/><br />
+      <button v-on:click="close()" class="btn">CLOSE</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  name: 'prize-view'
+  name: 'prize-view',
+  props: [
+    'item'
+  ],
+  methods: {
+    close () {
+      this.setPrizeState(false)
+    },
+    ...mapMutations([
+      'setPrizeState'
+    ])
+  }
 }
 </script>
 
 <style>
 .prize { 
-  z-index:20000;
-  background-color: rgba(255,255,255,.75);
+  z-index:15000;
+  background-color: #fff;
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0;
   text-align:center;
+  background: url('../../assets/halftone_background@2x.png') fixed bottom #fff;
+  background-repeat: no-repeat; 
+  background-position: bottom;
+  background-attachment: fixed;       
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-bottom: 128px;
 }
 
 .prize-hero {
-  width: 81.5%;
-  padding: 4.35%;
-  background-color: #000;
+  width: 90%;
+  padding: 5%;
   margin-top:16px;
 }
 
 .prize-holder {
   width: 100%;
-  background-color: #fff;
+}
+
+.btn {
+  padding: 2% 5%;
+  background-color: #1C3F9B;
+  border-radius: 1em;
+  color: #fff200;
+  border-color: #fff200;
 }
 </style>
