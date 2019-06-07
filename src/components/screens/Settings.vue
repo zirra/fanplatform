@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>User: {{user.username}}</p>
-    <button v-on:click="killUserLocal">Clear User</button>
+    <button v-on:click="killUserLocal" class="btn">Clear User</button>
   </div>
 </template>
 

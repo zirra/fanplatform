@@ -1,6 +1,10 @@
 <template>
-    <div class="content-container">
+  <div>
+    <img src="../../assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
+    <div class="content-container" style="text-align:center;">
+    
       <h1>Offers</h1>
+      <router-link to="/settings">Settings</router-link>
   <div style="text-align:center;">
     <a href="https://www.1000degreespizza.com/" target="_blank">
 <img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/1000-degrees-site-9145-1553875878.jpg" alt="1000 Degrees_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/1000-degrees-site-9145-1553875878.jpg">
@@ -81,6 +85,7 @@
 <img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/constellation-site-6992-1522253770.jpg" alt="Constellation_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/constellation-site-6992-1522253770.jpg">
 </a>
     </div>
+  </div>
   </div>
 </template>
 

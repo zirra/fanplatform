@@ -29,12 +29,18 @@ export default {
 <style>
 .promo { 
   z-index:20000;
-  background-color: rgba(255,255,255,.75);
+  background: url('../../assets/halftone_background@2x.png') fixed bottom #fff;
+  background-repeat: no-repeat; 
+  background-position: bottom;
+  background-attachment: fixed;       
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0;
   text-align:center;
+  margin-bottom: 128px;
 }
 
 .promo-hero {

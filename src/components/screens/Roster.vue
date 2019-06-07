@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img src="../../assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
     <div class="content-container">
       <h1>Roster</h1>
       <div v-for="item in allPlayers" v-bind:key="item.name" style="margin-bottom:64px;">

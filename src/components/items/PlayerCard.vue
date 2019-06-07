@@ -4,12 +4,12 @@
     <div>
       <div v-if="!isFlipped" class="player-card" v-on:click="toggleCard">
         <div style="position: absolute; z-index:333;">
-          <img src="../../assets/venue/players/overlay.png" />
+          <img src="https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/players/overlay.png" />
         </div>
         <img v-bind:src="myimage"/>
       </div>
       <div v-else class="player-stats" v-on:click="toggleCard">
-        Stats here
+        Place holder for stats
       </div>
     </div>
     
@@ -29,7 +29,8 @@ export default {
   ],
   computed: {
     myimage: function () {
-      return require(`../../assets/venue/players/${this.item.last}_site.png`)
+      return `https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/players/${this.item.last}_site.png`
+      // return require(`${this.item.last}_site.png`)
     }
   },
   methods: {
@@ -49,14 +50,16 @@ export default {
     margin: 3%;
     width: 332px;
     height: 528px;
-    background: url('../../assets/venue/players/card_back.png');
+    background: url('https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/players/card_back.png');
     background-color: rgba(0,0,0, .75);
   }
 
   .player-stats {
     margin: 3%;
     width: 332px;
+    color: #000;
     height: 528px;
+    background: url('https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/players/card_flip.png');
     background-color: rgba(0,0,0, .75);
   }
 

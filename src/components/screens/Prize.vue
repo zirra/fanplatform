@@ -27,7 +27,7 @@ export default {
 
 <style>
 .prize { 
-  z-index:15000;
+  z-index:20001;
   background-color: #fff;
   width: 100%;
   height: 100%;
@@ -51,13 +51,5 @@ export default {
 
 .prize-holder {
   width: 100%;
-}
-
-.btn {
-  padding: 2% 5%;
-  background-color: #1C3F9B;
-  border-radius: 1em;
-  color: #fff200;
-  border-color: #fff200;
 }
 </style>

@@ -8,14 +8,13 @@
       <prize-vue :item="prize"></prize-vue>
     </div>
     <main v-if="!notification">
-      <img src="./assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
       <router-view style="padding-bottom:128px;"></router-view>
     </main>
     <footer>
       <div class="footer-contents">
         <router-link to="/offer"><img src="./assets/offer_icon@2x.png"></router-link>
         <router-link to="/schedule"><img src="./assets/schedule_icon@2x.png"></router-link>
-        <router-link :to="{path:user.username, params: {id: user.username }}"><img src="./assets/home_icon@2x.png"></router-link>
+        <a @click="home"><img src="./assets/home_icon@2x.png"></a>
         <router-link to="/roster"><img src="./assets/roster_icon@2x.png"></router-link>
         <router-link to="/shop"><img src="./assets/shop_icon@2x.png"></router-link>
       </div>
@@ -27,7 +26,7 @@
 // import { storage } from '@/utils/storage'
 import SuperPromoVue from './components/screens/SuperPromo.vue'
 import PrizeVue from '@/components/screens/Prize'
-import {mapGetters, mapMutations} from 'vuex'
+import {mapActions, mapGetters, mapMutations} from 'vuex'
 import { storage } from './utils/dao'
 
 // {"test":"https://www.digitalseat.com", "img":"https://s3.us-east-2.amazonaws.com/ds-stadium-bucket/skeeters/skeeters_logo.png"}
@@ -40,24 +39,22 @@ export default {
   data () {
     return {
       prize: null,
-      promo: null,
-      user: {username: 'test'}
+      promo: null
     }
   },
   mounted () {
-    this.user = storage.getValue('user')
-    if (this.user) {
+    if (this.user.username != null) {
       this.$socket.emit('addUser', this.user.username)
+    } else {
+      console.log('mounted -> null')
     }
-    console.log('mounted ->' + this.user.username)
   },
   methods: {
     home () {
-      this.user = storage.getValue('user')
-      console.log(this.user)
-      if (this.user) {
-        this.$socket.emit('addUser', this.user.username)
-        this.$router.push(`/${this.user.username}`)
+      console.log(this.username + '<13241234235')
+      if (this.username) {
+        this.$socket.emit('addUser', this.username)
+        this.$router.push(`/${this.username}`)
       } else {
         this.$router.push(`/`)
       }
@@ -67,6 +64,9 @@ export default {
       console.log(data)
       this.prize = data
     },
+    ...mapActions([
+      'setUser'
+    ]),
     ...mapMutations([
       'setNotification',
       'setPrizeState'
@@ -79,7 +79,9 @@ export default {
     ...mapGetters([
       'showPromo',
       'showPrize',
-      'notification'
+      'notification',
+      'user',
+      'username'
     ])
   },
   sockets: {
@@ -105,6 +107,9 @@ export default {
           this.promo = JSON.parse(data)
         } else {
           this.setNotification(false)
+          if (this.showPrize) {
+            this.setPrizeState(false)
+          }
           this.promo = null
         }
       } catch (e) {
@@ -114,8 +119,10 @@ export default {
     },
 
     userSigned (data) {
-      storage.storeValue('user', data)
-      console.log(data)
+      if (data.username != null) {
+        this.setUser(data)
+        storage.storeValue('user', data)
+      }
     },
 
     userJoined (data) {
@@ -211,6 +218,14 @@ header span {
   width: 94%;
   margin: 3%;
   text-align: left;
+}
+
+.btn {
+  padding: 2% 5%;
+  background-color: #1C3F9B;
+  border-radius: 1em;
+  color: #fff200;
+  border-color: #fff200;
 }
 
 footer {

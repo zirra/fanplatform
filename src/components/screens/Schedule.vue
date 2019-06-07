@@ -1,8 +1,11 @@
 <template>
-  <div class="content-container">
-    <h1>Schedule</h1>
-    <div v-for="item in allGameData" v-bind:key="item.name" style="margin-bottom:64px;">
-      <event-item v-bind:item="item"></event-item>
+  <div>
+    <img src="../../assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
+    <div class="content-container">  
+      <h1>Schedule</h1>
+      <div v-for="item in allGameData" v-bind:key="item.name" style="margin-bottom:64px;">
+        <event-item v-bind:item="item"></event-item>
+      </div>
     </div>
   </div>
 </template>
