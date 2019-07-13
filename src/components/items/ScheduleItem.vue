@@ -1,13 +1,17 @@
 <template>
-  <div style="width:100%; clear: both;">
-    <div class="date-box">
-      <div v-html=formattedDate style="margin: 0px; padding: 0px;"></div>
+  <div style="height:100px; width:100%; clear: both; float:none; background-color:rgba(255,255,255,.75); display:block;" 
+    class="date-box">
+    <div style="width:100%;clear: both; float:none; padding: 8px 8px 0px 0px;">
+      <h3 style="color:#000;"><b>{{item.date.type}} {{item.date.week}}</b> {{item.date.date}}</h3>
     </div>
-    <div style="width:75%; float:left; background-color: #1C3F9B; height:96px; color:#fff;">
-      <div style="padding:4%;">
-        <h3 style="color:#f7ec4f; margin:0px; padding:0px;">{{item.name}}</h3>
-        <button v-if="item.offers" v-on:click="openUrl(item.offers.url)" style="color:#fff;">GET TICKETS</button>
-      </div>
+    <div style="width:15%; float:left;">
+      <img class="img-responsive logo" :src="item.team.logo" :alt="item.team.name">
+    </div>
+    <div style="width:65%; float:left; padding-top:16px;">
+      <h3 style="color:#000; margin:0px; padding:0px;">{{item.team.name}}</h3>
+    </div>
+    <div style="width:20%; float:left; margin-top:16px;">
+      <img :src="baseUrl +'/buytickets.gif'" alt="Purchase Tickets" style="width:100%; float:left;" @click="chooseMe(item)"/>
     </div>
   </div>
 </template>
@@ -20,6 +24,11 @@ export default {
   props: [
     'item'
   ],
+  data () {
+    return {
+      baseUrl: process.env.ASSETS
+    }
+  },
   computed: {
     formattedDate: function () {
       let month = moment(this.item.startDate).format('MMM').toUpperCase()
@@ -31,6 +40,9 @@ export default {
   methods: {
     openUrl: function (target) {
       window.open(target, '_blank')
+    },
+    chooseMe () {
+      this.$emit('ticketEvent')
     }
   }
 }
@@ -38,11 +50,12 @@ export default {
 
 <style>
 .date-box {
-  float: left;
-  text-align: center;
+  text-align: left;
   color: #1C3F9B;
-  background-color:#f7ec4f;
-  width: 25%;
-  margin: 0px 0px 16px 0px;
+  margin: 0px 0px 8px 0px;
+}
+
+.date-box .logo {
+  width: 100%;
 }
 </style>

@@ -1,100 +1,116 @@
 <template>
   <div>
-    <img src="../../assets/skeeters_header.png" style="width:100%; margin-top:-64px;">
     <div class="content-container" style="text-align:center;">
-    
-      <h1>Offers</h1>
-      <router-link to="/settings">Settings</router-link>
-  <div style="text-align:center;">
-    <a href="https://www.1000degreespizza.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/1000-degrees-site-9145-1553875878.jpg" alt="1000 Degrees_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/1000-degrees-site-9145-1553875878.jpg">
-</a>
-<a href="https://www.aarp.org/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/aarp-site-7780-1528215343.jpg" alt="AARP_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/aarp-site-7780-1528215343.jpg">
-</a>
-<a href="http://www.advancedhearingcentertx.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/advancedhearing-site-6964-1522253614.jpg" alt="AdvancedHearing_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/advancedhearing-site-6964-1522253614.jpg">
-</a>
-<a href="https://activepestcontrol.com/services/pest-control/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/active-pest-control-site-9148-1553875926.jpg" alt="Active Pest Control_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/active-pest-control-site-9148-1553875926.jpg">
-</a>
-<a href="http://airteamltd.com/home/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/air-team-site-6966-1522253638.jpg" alt="Air Team_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/air-team-site-6966-1522253638.jpg">
-</a>
-<a href="https://www.alert360.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/alert360-site-9062-1552489907.jpg" alt="Alert360_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/alert360-site-9062-1552489907.jpg">
-</a>
-<a href="http://www.abmtexas.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/abm-site-6962-1522253604.jpg" alt="ABM_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/abm-site-6962-1522253604.jpg">
-</a>
-<a href="http://www.assuredflowsolutionsllc.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/assured-flow-site-6972-1522253659.jpg" alt="Assured Flow_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/assured-flow-site-6972-1522253659.jpg">
-</a>
-<a href="http://www.aztecusa.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/aztec-site-6976-1522253696.jpg" alt="Aztec_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/aztec-site-6976-1522253696.jpg">
-</a>
-<a href="http://houston.belhaven.edu/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/belhaven-site-7160-1522257033.jpg" alt="Belhaven_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/belhaven-site-7160-1522257033.jpg">
-</a>
-<a href="http://www.bramanbrands.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/braman-site-6982-1522253727.jpg" alt="Braman_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/braman-site-6982-1522253727.jpg">
-</a>
-<a href="https://www.buckner.org" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/buckner-site-9151-1553876008.jpg" alt="Buckner_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/buckner-site-9151-1553876008.jpg">
-</a>
-<a href="https://www.buffalowildwings.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/buffalowildwings-site-9065-1552490017.jpg" alt="BuffaloWildWings_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/buffalowildwings-site-9065-1552490017.jpg">
-</a>
-<a href="https://www.carrabbas.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/carabbas-site-9068-1552490084.jpg" alt="Carabbas_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/carabbas-site-9068-1552490084.jpg">
-</a>
-
-<a href="http://casadebravos.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/casadebravo-site-9070-1552490148.jpg" alt="CasaDeBravo_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/casadebravo-site-9070-1552490148.jpg">
-</a>
-
-<a href="https://certapro.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/certapro-site-9267-1557176044.jpg" alt="CertaPro_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/certapro-site-9267-1557176044.jpg">
-</a>
-
-<a href="https://www.facebook.com/chamos.barandgrill/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/chamos-site-9153-1553876044.jpg" alt="Chamos_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/chamos-site-9153-1553876044.jpg">
-</a>
-
-<a href="https://www.chick-fil-a.com" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/chick-fil-a-site-9156-1553876101.jpg" alt="Chick Fil A_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/chick-fil-a-site-9156-1553876101.jpg">
-</a>
-
-<a href="http://www.christchurchsl.org/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/christ-church-site-6984-1522253731.jpg" alt="Christ Church_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/christ-church-site-6984-1522253731.jpg">
-</a>
-
-<a href="http://www.classicchevyhouston.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/classic-chevrolet-site-6986-1522253735.jpg" alt="Classic Chevrolet_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/classic-chevrolet-site-6986-1522253735.jpg">
-</a>
-
-<a href="http://www.texasclickitorticket.com/" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/clickitorticket-site-8448-1537285596.jpg" alt="ClickItorTicket_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters/gallery-media/clickitorticket-site-8448-1537285596.jpg">
-</a>
-
-<a href="http://www.coca-cola.com/global/glp.html" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/coke-site-6990-1522253757.jpg" alt="Coke_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/coke-site-6990-1522253757.jpg">
-</a>
-
-<a href="http://www.constellation.com/pages/default.aspx" target="_blank">
-<img data-src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/constellation-site-6992-1522253770.jpg" alt="Constellation_Site.jpg" class="img-responsive center-block lazyloaded" src="https://s3.amazonaws.com/busites_www/sugarlandskeeters/1-connect/2-sugar-land-skeeters-full-site/gallery-media/constellation-site-6992-1522253770.jpg">
-</a>
+      <h1 style="text-align:left;">Offers</h1>
+      <div style="text-align:center; width:100%; margin:0px auto;">
+        <div class="offer">
+          <p><a :href="geturl('bacardi')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_Bacardi.jpg" 
+            @click="openCard('https://mp.vibescm.com/c/a1i8g6','offer','bacardi',1)"
+            alt="Chiefs Sponsorhips Partner"></a></p>
+        </div>
+        <div class="offer">
+          <p><a :href="geturl('draftkings')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_DraftKings.jpg" 
+            @click="openCard('https://mp.vibescm.com/c/l2evd7','offer','draftkings',1)"
+            alt="Chiefs Sponsorhips Partner"></a></p>
+        </div>
+        <div class="offer">
+          <p><a :href="geturl('nissan')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_Nissan.jpg" 
+            @click="openCard('https://mp.vibescm.com/c/z4sii6','offer','nissan',1)"
+            alt="Chiefs Sponsorhips Partner"></a></p>
+        </div>
+        <div class="offer">
+          <p><a :href="geturl('gamestop')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_GameStop.jpg" 
+            @click="openCard('https://mp.vibescm.com/c/hej6d1','offer','gamestop',1)"
+            alt="Chiefs Sponsorhips Partner"></a></p>
+        </div>
+        <div class="offer">
+          <p><a :href="geturl('statefarm')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_StateFarm.jpg" 
+            @click="openCard('https://mp.vibescm.com/c/jtme8q','offer','statefarm',1)"
+            alt="Chiefs Sponsorhips Partner"></a></p>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
 <script>
-export default {
+import { mapMutations } from 'vuex'
+import { api } from '@/utils/api'
 
+export default {
+  mounted () {
+    this.setNavCurrent('offer')
+  },
+  methods: {
+    geturl (brand) {
+      let dest
+      switch (brand) {
+        case 'bacardi':
+          dest = 'https://mp.vibescm.com/c/a1i8g6'
+          break
+        case 'draftkings':
+          dest = 'https://mp.vibescm.com/c/l2evd7'
+          break
+        case 'nissan':
+          dest = 'https://mp.vibescm.com/c/z4sii6'
+          break
+        case 'gamestop':
+          dest = 'https://mp.vibescm.com/c/hej6d1'
+          break
+        case 'statefarm':
+          dest = 'https://mp.vibescm.com/c/jtme8q'
+          break
+      }
+      let murl = `/v1/metrics/${type}/${brand}/${item}/accept`
+
+      // let dest = geturl(brand)
+
+      api.getRaw(murl)
+        .then(
+          response => {
+            return dest
+          })
+        .catch(error => {
+          comnsole.log(error)
+          return dest
+        })
+    },
+    openCard (url, type, brand, item) {
+      let murl = `/v1/metrics/${type}/${brand}/${item}/accept`
+      // let dest = geturl(brand)
+      api.getRaw(murl)
+        .then(
+          response => {
+            // location.replace(dest)
+            console.log(response.data)
+          })
+        .catch(error => {
+          // location.replace(dest)
+          console.log(error)
+        })
+    },
+    ...mapMutations([
+      'setNavCurrent'
+    ])
+  }
 }
 </script>
 
 <style>
+.content-container img {
+  width :100%;
+  text-align: center;
+}
 
+.offer {
+  margin-top:16px;
+  width: 94%;
+  margin-left: 3%;
+  background-color: #fff;
+}
+
+.offer img {
+  border-radius: 15px;
+  border: solid 2px #f4b843;
+}
 </style>

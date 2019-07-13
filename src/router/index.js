@@ -7,6 +7,7 @@ import SnapBack from '@/components/screens/SnapBack'
 import SnapChat from '@/components/screens/SnapChat'
 import Settings from '@/components/screens/Settings'
 import Offer from '@/components/screens/Offer'
+import Shop from '@/components/screens/Shop'
 
 Vue.use(Router)
 
@@ -29,7 +30,12 @@ export default new Router({
     },
     {
       path: '/shop',
-      beforeEnter (to, from, next) { window.open('https://sugar-land-skeeters10.mybigcommerce.com/', '_blank') }
+      name: 'Shop',
+      component: Shop
+    },
+    {
+      path: '/store',
+      beforeEnter (to, from, next) { window.open('https://shop.chiefs.com/?_s=bm-chiefs-topnav-61118', '_blank') }
     },
     {
       path: '/snap',

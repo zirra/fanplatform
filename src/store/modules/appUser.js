@@ -15,7 +15,7 @@ const mutations = {
 
 const getters = {
   user (state) {
-    if (state.user == null) {
+    if (state.user === null || state.user === undefined) {
       return storage.getValue('user')
     } else {
       return state.user
@@ -23,7 +23,7 @@ const getters = {
   },
   username (state) {
     console.log(state.user)
-    if (state.user.username == null) {
+    if (state.user.username == null || state.user === undefined) {
       let t = storage.getValue('user')
       return t.username
     } else {

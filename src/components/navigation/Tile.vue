@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     myimage: function () {
-      return require(`../../assets/${this.item.image}`)
+      return `${process.env.ASSETS}/${this.item.image}`
     },
     mylink: function () {
       return this.item.target
