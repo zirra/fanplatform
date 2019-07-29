@@ -25,11 +25,12 @@
         </div>
         <div class="offer">
           <p><a :href="geturl('statefarm')"><img src="https://ds-stadium-bucket.s3.us-east-2.amazonaws.com/chiefs/MA_coupon_card_StateFarm.jpg" 
-            @click="openCard('https://mp.vibescm.com/c/jtme8q','offer','statefarm',1)"
+            @click="openCard('https://mp.vibescm.com/c/mp21xm','offer','statefarm',1)"
             alt="Chiefs Sponsorhips Partner"></a></p>
         </div>
       </div>
     </div>
+    <div style="clear:both; height:96px;"></div>
   </div>
 </template>
 
@@ -58,22 +59,21 @@ export default {
           dest = 'https://mp.vibescm.com/c/hej6d1'
           break
         case 'statefarm':
-          dest = 'https://mp.vibescm.com/c/jtme8q'
+          dest = 'https://mp.vibescm.com/c/mp21xm'
           break
       }
-      let murl = `/v1/metrics/${type}/${brand}/${item}/accept`
+      let murl = `/v1/metrics/offer/${brand}/coupon/accept`
 
       // let dest = geturl(brand)
 
       api.getRaw(murl)
         .then(
           response => {
-            return dest
           })
         .catch(error => {
-          comnsole.log(error)
-          return dest
+          console.log(error)
         })
+      return dest
     },
     openCard (url, type, brand, item) {
       let murl = `/v1/metrics/${type}/${brand}/${item}/accept`

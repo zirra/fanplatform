@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div style="clear:both;"></div>
+    <div style="clear:both; height:96px;"></div>
   </div>
 </template>
 

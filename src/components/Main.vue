@@ -6,7 +6,7 @@
           <menu-tile v-bind:item="item"></menu-tile>
         </div>
       </div>
-      <div style="height: 128px; margin-bottom:128px;"><br/><br/></div>
+      <div style="margin-bottom:64px;"></div>
     </div>
   </div>
 </template>

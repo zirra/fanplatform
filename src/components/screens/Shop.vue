@@ -26,6 +26,7 @@
 
       </div>
     </div>
+    <div style="clear:both; height:64px;"></div>
   </div>
 </template>
 

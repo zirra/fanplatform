@@ -6,7 +6,7 @@
     <div v-if="ticketView" id="ticketScreen">
       <ticket-view v-bind:item="myTicket" v-on:closeItem="closeModal" v-on:showApplePay="showAppleModal" />
     </div>
-    <div class="content-container" v-if="!ticketView && !payView" style="position:absolute;">
+    <div class="content-container" v-if="!ticketView && !payView" style="position:absolute; margin-bottom:96px;">
       <h1>Schedule</h1> 
       <div v-for="item in allGameData" v-bind:key="item.name" style="margin-bottom:16px;">
         <event-item v-bind:item="item" v-on:ticketEvent="itemClicked(item)"></event-item>

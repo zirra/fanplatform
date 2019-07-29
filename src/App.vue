@@ -14,7 +14,7 @@
     <main v-if="!notification">
       <div style="z-index:100;">
         <div><img :src="getHeader()" style="width:100%;"></div>
-        <router-view style="padding-bottom:128px;"></router-view>
+        <router-view></router-view>
       </div>
     </main>
 
